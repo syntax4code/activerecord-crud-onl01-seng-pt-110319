@@ -7,7 +7,7 @@
 
 def can_be_instantiated_and_then_saved
   movie = Movie.new
-  movie.title = "This is a title."	  movie.title = "This is a title."
+  movie.title = "This is a title."
   movie.save
 end
 
@@ -20,11 +20,11 @@ def can_be_created_with_a_hash_of_attributes
       lead: "Paul Newman",
       in_theaters: false
   }
-  movie = __
+  movie = Movie.create(attributes)
 end
 
 def can_be_created_in_a_block
-  Movie.create do |m|	  Movie.create do |m|
+  Movie.create do |m|
   m.title = "Woo!"
   end
 end
@@ -49,7 +49,6 @@ def can_find_by_multiple_attributes
   Movie.find_by(title: "Title")
   Movie.find_by(release_date: "2000")
   Movie.find_by(director: "Me"
-  __
 end
 
 def can_find_using_where_clause_and_be_sorted
@@ -82,12 +81,13 @@ end
 def can_destroy_a_single_item
   Movie.create(title: "That One Where the Guy Kicks Another Guy Once")
   movie = Movie.find_by(title: "That One Where the Guy Kicks Another Guy Once")
-  movie.destroy 
+  movie.destroy
 end
 
 def can_destroy_all_items_at_once
   10.times do |i|
     Movie.create(title: "Movie_#{i}")
   end
-  __
+   Movie.destroy_all
+end
 end
