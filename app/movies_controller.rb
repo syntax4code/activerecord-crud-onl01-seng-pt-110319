@@ -25,7 +25,8 @@ end
 
 def can_be_created_in_a_block
   Movie.create do |m|
-  m.title = "Woo!"
+  m.title = "Star Wars"
+  m.release_date = 1990
   end
 end
 
@@ -48,7 +49,7 @@ end
 def can_find_by_multiple_attributes
   Movie.find_by(title: "Title")
   Movie.find_by(release_date: "2000")
-  Movie.find_by(director: "Me"
+  Movie.find_by(director: "Me")
 end
 
 def can_find_using_where_clause_and_be_sorted
@@ -68,6 +69,7 @@ def can_update_using_update_method
   Movie.create(title: "Wat?")
   movie = Movie.find_by(title: "Wat?")
   movie.update(title: "Wat, huh?")
+
 end
 
 def can_update_multiple_items_at_once
@@ -89,5 +91,4 @@ def can_destroy_all_items_at_once
     Movie.create(title: "Movie_#{i}")
   end
    Movie.destroy_all
-end
 end
